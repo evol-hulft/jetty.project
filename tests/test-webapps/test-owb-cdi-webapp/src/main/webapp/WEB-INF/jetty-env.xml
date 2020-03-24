@@ -1,9 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE Configure PUBLIC "-//Jetty//Configure//EN" "http://www.eclipse.org/jetty/configure_9_3.dtd">
 
 <Configure id="webAppCtx" class="org.eclipse.jetty.webapp.WebAppContext">
+  <Call class="java.lang.System" name="setProperty">
+    <Arg>openwebbeans.web.sci.active</Arg>
+    <Arg type="String">true</Arg>
+  </Call>
+
   <New id="BeanManager" class="org.eclipse.jetty.plus.jndi.Resource">
     <Arg>
-      <Ref refid="webAppCtx"/>
+      <Ref refid="webAppCtx" />
     </Arg>
     <Arg>BeanManager</Arg>
     <Arg>
